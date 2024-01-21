@@ -1,10 +1,11 @@
+import { kv } from "@vercel/kv"
 import { NextResponse } from "next/server"
-
-let likes = 0
 
 export const dynamic = "force-dynamic"
 
-export function GET() {
+
+export async function GET() {
+  const likes = await kv.get<number>("likes") ?? 0;
   return NextResponse.json({ likes }, {
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -14,8 +15,8 @@ export function GET() {
   })
 }
 
-export function POST() {
-  likes++
+export async function POST() {
+  const likes = await kv.incr("likes");
   return NextResponse.json({ likes }, {
     headers: {
       'Access-Control-Allow-Origin': '*',
