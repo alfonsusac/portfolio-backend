@@ -10,5 +10,5 @@ export function GET() {
 
 export function POST() {
   likes++
-  return NextResponse.json({ ok: true })
+  return NextResponse.json({ likes })
 }
