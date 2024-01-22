@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
   // const likes = await kv.incr("likes");
   return NextResponse.json({ likes }, {
     headers: {
-      'Access-Control-Allow-Origin': 'https://assignment-3-devscale.vercel.app/',
+      'Access-Control-Allow-Origin': 'https://assignment-3-devscale.vercel.app',
       'Access-Control-Allow-Methods': 'GET, POST',
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       'X-RateLimit-Limit': rlresult.limit + '',
