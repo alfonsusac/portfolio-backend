@@ -14,7 +14,7 @@ const redis = new Redis({
 })
 const ratelimit = new Ratelimit({
   redis: redis,
-  limiter: Ratelimit.fixedWindow(10, "120 s"),
+  limiter: Ratelimit.fixedWindow(10, "210 s"),
 })
 
 export async function GET() {
